@@ -93,7 +93,3 @@ window.addEventListener('load', () => {
     render();
   }
 });
-
-myLibrary.forEach((book) => {
-  console.log(book);
-});
