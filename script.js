@@ -5,10 +5,11 @@ const bookList = document.querySelector('.book-list');
 
 const myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, imageURL, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.imageURL = imageURL;
   this.read = read;
 }
 
@@ -30,6 +31,10 @@ function render() {
     const pages = document.createElement('p');
     pages.textContent = `Pages: ${book.pages}`;
     bookDiv.appendChild(pages);
+
+    const image = document.createElement('img');
+    image.setAttribute('src', `${book.imageURL}`);
+    bookDiv.appendChild(image);
 
     const readStatus = document.createElement('p');
     readStatus.textContent = `Read: ${book.read ? 'Yes' : 'No'}`;
@@ -61,8 +66,9 @@ function addBookToLibrary() {
   const title = document.querySelector('#title').value;
   const author = document.querySelector('#author').value;
   const pages = document.querySelector('#pages').value;
+  const imageURL = document.querySelector('#imageURL').value;
   const read = document.querySelector('#read').checked;
-  const newBook = new Book(title, author, pages, read);
+  const newBook = new Book(title, author, pages, imageURL, read);
   myLibrary.push(newBook);
   localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 }
