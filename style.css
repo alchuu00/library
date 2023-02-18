@@ -239,3 +239,29 @@ nav {
   transform: rotateY(180deg);
   transition-timing-function: ease-in-out;
 }
+
+/* footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-weight: 300;
+  color: gray;
+  font-size: 12px;
+}
+
+svg {
+  fill: gray;
+  height: 20px;
+  width: 20px;
+  transition: transform 0.3s ease-in-out;
+  box-shadow:none;
+}
+
+svg:hover {
+  transform: rotate(360deg);
+}
