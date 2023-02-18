@@ -48,14 +48,15 @@ function render() {
     const readContainer = document.createElement('div');
     readContainer.setAttribute('class', 'container-read');
     backCard.appendChild(readContainer);
+    readContainer.style.backgroundColor = book.read ? '#a1ff9e' : '#ff5151';
 
     const readStatus = document.createElement('p');
     readStatus.textContent = 'Read: ';
     readContainer.appendChild(readStatus);
 
     const toggleReadBtn = document.createElement('button');
-    toggleReadBtn.textContent = book.read ? '✔️' : '❌';
-    toggleReadBtn.addEventListener('click', () => {
+    toggleReadBtn.textContent = book.read ? 'Yes' : 'No';
+    readContainer.addEventListener('click', () => {
       book.read = !book.read;
       localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
       render();
@@ -63,11 +64,16 @@ function render() {
     readContainer.appendChild(toggleReadBtn);
 
     const removeBtn = document.createElement('button');
+    removeBtn.setAttribute('class', 'remove-btn');
     removeBtn.textContent = '🗑️';
     removeBtn.addEventListener('click', () => {
-      myLibrary.splice(index, 1);
-      localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
-      render();
+      if (window.confirm('are you sure you want to delete this book?')) {
+        myLibrary.splice(index, 1);
+        localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+        render();
+      } else {
+        render();
+      }
     });
     backCard.appendChild(removeBtn);
 

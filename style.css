@@ -15,7 +15,8 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-color:#4CAF50;
+  background-color: white;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* bottom text instructions */
@@ -30,6 +31,27 @@ nav {
 }
 
 /*add new book button*/
+#new-book-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  border: none;
+  width: 50px;
+  height: 50px;
+  background-color:rgb(172, 172, 172);
+}
+
+#new-book-btn img {
+  scale: 0.5;
+  width: 50px;
+  height: 50px;
+}
+
+#new-book-btn:hover {
+  background-color: gray;
+}
+
 /* add new book modal */
 .modal {
   position: fixed;
@@ -46,6 +68,20 @@ nav {
 .modal-container {
   background-color: white;
   padding: 50px;
+  width: 50%;
+  background-color: #f2f2f2;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-container a {
+  display: block;
+  float: right;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #444;
+  margin-bottom: 1rem;
 }
 
 #new-book-form {
@@ -61,6 +97,53 @@ nav {
 }
 
 #new-book-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#new-book-form div {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+#new-book-form label {
+  width: 5rem;
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+#new-book-form input[type="text"], #new-book-form input[type="number"], #new-book-form input[type="checkbox"] {
+  width:400px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 1rem;
+}
+
+#new-book-form input[type="checkbox"] {
+  width: auto;
+}
+
+#new-book-form button[type="submit"] {
+  padding: 0.5rem 1rem;
+  background-color: rgb(172, 172, 172);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#new-book-form button[type="submit"]:hover {
+  background-color: gray;
+}
 
 /* book list container */
 .book-list {
@@ -77,23 +160,6 @@ nav {
   width: 200px;
   height: 300px;
   object-fit: cover;
-}
-
-#new-book-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  border-radius: 50%;
-  border: none;
-  width: 50px;
-  height: 50px;
-  background-color:#4CAF50;
-}
-
-#new-book-btn img {
-  scale: 0.5;
-  width: 50px;
-  height: 50px;
 }
 
 /*each book*/
@@ -122,11 +188,11 @@ nav {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 5px;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.3);
 }
 
 .flip-card-front {
   transform: rotateY(0deg);
-  background-color: lightgray;
 }
 
 .flip-card-front img {
@@ -135,7 +201,6 @@ nav {
 
 .flip-card-back {
   transform: rotateY(180deg);
-  background-color: lightgray;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -144,69 +209,23 @@ nav {
   gap: 10px;
   font-size: 0.7rem;
   padding: 10px;
+  background-color: white;
 }
 
 .container-read {
   display: flex;
-  gap: 10px;
-}
-
-.flip-card-back button {
-  border: none;
-  background-color: transparent;
-}
-
-.flip-card:hover {
-  transform: rotateY(180deg);
-  transition-timing-function: ease-in-out;
-}
-
-#new-book-modal {
-  display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  gap: 5px;
+  margin-top: auto;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
-.modal-container {
-  width: 50%;
-  background-color: #f2f2f2;
-  padding: 2rem;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+.container-read:hover {
+  scale: 1.2;
 }
 
-.modal-container a {
-  display: block;
-  float: right;
-  font-size: 1.5rem;
-  text-decoration: none;
-  color: #444;
-  margin-bottom: 1rem;
-}
-
-#new-book-form div {
-  display: flex;
-  margin-bottom: 1rem;
-}
-
-#new-book-form label {
-  width: 7rem;
-  margin-right: 1rem;
-  font-weight: bold;
-}
-
-#new-book-form input[type="text"], #new-book-form input[type="number"], #new-book-form input[type="checkbox"] {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 1rem;
 .flip-card-back button {
   background-color: transparent;
   border: none;
