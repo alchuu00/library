@@ -13,9 +13,6 @@ function Book(title, author, pages, imageURL, read) {
   this.read = read;
 }
 
-const myBook = new Book('To Kill a Mockingbird', 'Harper Lee', 281, 'https://cdn.penguin.co.uk/dam-assets/books/9780434020485/9780434020485-jacket-large.jpg', false);
-myLibrary.push(myBook);
-
 function render() {
   bookList.innerHTML = '';
 
