@@ -8,7 +8,7 @@
 body {
   background-color:#f2f2f2;
 }
-
+/* navbar */
 nav {
   font-size: 18px;
   display: flex;
@@ -18,6 +18,7 @@ nav {
   background-color:#4CAF50;
 }
 
+/* bottom text instructions */
 .instruction {
   font-size: 18px;
   position: fixed;
@@ -28,6 +29,8 @@ nav {
   z-index: 1;
 }
 
+/*add new book button*/
+/* add new book modal */
 .modal {
   position: fixed;
   top: 0;
@@ -57,6 +60,9 @@ nav {
   display: none !important;
 }
 
+#new-book-modal {
+
+/* book list container */
 .book-list {
   display: grid;
 
@@ -66,6 +72,7 @@ nav {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
+/* book cover image */
 .book img {
   width: 200px;
   height: 300px;
@@ -89,6 +96,7 @@ nav {
   height: 50px;
 }
 
+/*each book*/
 .book {
   margin: 1rem;
   width: 300px;
@@ -199,22 +207,16 @@ nav {
   border: 1px solid #ccc;
   border-radius: 3px;
   font-size: 1rem;
-}
-
-#new-book-form input[type="checkbox"] {
-  width: auto;
-}
-
-#new-book-form button[type="submit"] {
-  padding: 0.5rem 1rem;
-  background-color: #4CAF50;
-  color: white;
+.flip-card-back button {
+  background-color: transparent;
   border: none;
-  border-radius: 3px;
-  font-size: 1rem;
-  cursor: pointer;
 }
 
-#new-book-form button[type="submit"]:hover {
-  background-color: #3e8e41;
+.remove-btn:hover {
+  scale: 1.2;
+}
+
+.flip-card:hover {
+  transform: rotateY(180deg);
+  transition-timing-function: ease-in-out;
 }
