@@ -13,6 +13,15 @@ function Book(title, author, pages, imageURL, read) {
   this.read = read;
 }
 
+const myBook = new Book(
+  'To Kill a Mockingbird',
+  'Harper Lee',
+  281,
+  'https://cdn.penguin.co.uk/dam-assets/books/9780434020485/9780434020485-jacket-large.jpg',
+  false
+);
+myLibrary.push(myBook);
+
 function render() {
   bookList.innerHTML = '';
 
@@ -88,7 +97,8 @@ function addBookToLibrary() {
   const read = document.querySelector('#read').checked;
   let imageURL = document.querySelector('#imageURL').value;
   if (imageURL === '') {
-    imageURL = 'https://2.bp.blogspot.com/-muVbmju-gkA/Vir94NirTeI/AAAAAAAAT9c/VoHzHZzQmR4/s1600/placeholder-image.jpg';
+    imageURL =
+      'https://2.bp.blogspot.com/-muVbmju-gkA/Vir94NirTeI/AAAAAAAAT9c/VoHzHZzQmR4/s1600/placeholder-image.jpg';
   }
 
   const newBook = new Book(title, author, pages, imageURL, read);
