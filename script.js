@@ -1,5 +1,5 @@
 const newBookModal = document.getElementById('new-book-modal');
-const newBookBtn = document.getElementById('new-book');
+const newBookBtn = document.getElementById('new-book-btn');
 const submit = document.querySelector('form');
 const bookList = document.querySelector('.book-list');
 
@@ -19,44 +19,57 @@ function render() {
   myLibrary.forEach((book, index) => {
     const bookDiv = document.createElement('div');
     bookDiv.classList.add('book');
+    bookDiv.classList.add('flip-card');
 
-    const title = document.createElement('h2');
-    title.textContent = book.title;
-    bookDiv.appendChild(title);
+    const frontCard = document.createElement('div');
+    frontCard.classList.add('flip-card-front');
+    bookDiv.appendChild(frontCard);
 
-    const author = document.createElement('p');
-    author.textContent = `Author: ${book.author}`;
-    bookDiv.appendChild(author);
-
-    const pages = document.createElement('p');
-    pages.textContent = `Pages: ${book.pages}`;
-    bookDiv.appendChild(pages);
+    const backCard = document.createElement('div');
+    backCard.classList.add('flip-card-back');
+    bookDiv.appendChild(backCard);
 
     const image = document.createElement('img');
     image.setAttribute('src', `${book.imageURL}`);
-    bookDiv.appendChild(image);
+    frontCard.appendChild(image);
+
+    const title = document.createElement('h2');
+    title.textContent = book.title;
+    backCard.appendChild(title);
+
+    const author = document.createElement('p');
+    author.textContent = `${book.author}`;
+    backCard.appendChild(author);
+
+    const pages = document.createElement('p');
+    pages.textContent = `Pages: ${book.pages}`;
+    backCard.appendChild(pages);
+
+    const readContainer = document.createElement('div');
+    readContainer.setAttribute('class', 'container-read');
+    backCard.appendChild(readContainer);
 
     const readStatus = document.createElement('p');
-    readStatus.textContent = `Read: ${book.read ? 'Yes' : 'No'}`;
-    bookDiv.appendChild(readStatus);
-
-    const removeBtn = document.createElement('button');
-    removeBtn.textContent = 'Remove';
-    removeBtn.addEventListener('click', () => {
-      myLibrary.splice(index, 1);
-      localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
-      render();
-    });
-    bookDiv.appendChild(removeBtn);
+    readStatus.textContent = 'Read: ';
+    readContainer.appendChild(readStatus);
 
     const toggleReadBtn = document.createElement('button');
-    toggleReadBtn.textContent = 'Toggle Read Status';
+    toggleReadBtn.textContent = book.read ? '✔️' : '❌';
     toggleReadBtn.addEventListener('click', () => {
       book.read = !book.read;
       localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
       render();
     });
-    bookDiv.appendChild(toggleReadBtn);
+    readContainer.appendChild(toggleReadBtn);
+
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = '🗑️';
+    removeBtn.addEventListener('click', () => {
+      myLibrary.splice(index, 1);
+      localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+      render();
+    });
+    backCard.appendChild(removeBtn);
 
     bookList.appendChild(bookDiv);
   });
@@ -66,8 +79,12 @@ function addBookToLibrary() {
   const title = document.querySelector('#title').value;
   const author = document.querySelector('#author').value;
   const pages = document.querySelector('#pages').value;
-  const imageURL = document.querySelector('#imageURL').value;
   const read = document.querySelector('#read').checked;
+  let imageURL = document.querySelector('#imageURL').value;
+  if (imageURL === '') {
+    imageURL = 'https://2.bp.blogspot.com/-muVbmju-gkA/Vir94NirTeI/AAAAAAAAT9c/VoHzHZzQmR4/s1600/placeholder-image.jpg';
+  }
+
   const newBook = new Book(title, author, pages, imageURL, read);
   myLibrary.push(newBook);
   localStorage.setItem('myLibrary', JSON.stringify(myLibrary));

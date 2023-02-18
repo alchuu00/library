@@ -4,35 +4,59 @@
 <head>
   <meta charset="UTF-8">
   <title>My Library</title>
-  <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAWX29AFF1lABwqs4AJiDJAD1OVwAoKMYAZHeIAGh9fwBsfX8AU2uAAC4u2AACAwEAf7nXAIObogAGBAQAY3B0ACg0OAA2NdsAhb7dAHiOhQAJBhMAAw0fACAhJACUwNEALVJ/AFBkdQCOwuAAiqi3ACUmKgAvPVMAfLXVACQnNgBvhIMALzXKAH641QBspMcASk7VAEZZcAA1N9AAdYiPABs1aQAwOTYAk8XYAFZsagB8mJsAIiouAHq41gApQ10AgrDQAHu41gCKjpgAXIurADI11ABwpsUAhLzZADxNTgA4N9oAdqvCADo51wBflroALjc6AC83OgA6P9cAeZGQACgryQBRhKkAQVFaAGx/dgB/lZwALS7SAH2XogBnp8kAkLC/AD1GQwAxNNsAgbzaAJiyvAApTXMAcq/PAEJOUgCTv9oAmMHOACkn0AAJDx8ANT1EAJSpqwAwR0cAhLXPAIK20gCBt9UABAICAIOcoABzorsAhLrVAFqTswAxNDwAiqiyAH2RkgAtL7wAk8beAEFF2QB+lJsAV4qrAIOWmACVyOQALzHUAH253ABKUdAAVXaCAEx3lwCHt9YAZZKxACo8OgAoLsMAKibPAI3E4gBahKMAe5WfAC0t0gDr+fcAfLfXADJDTwBhjZoAgbfXAHGEiABKepgAcYiLAEdiYwBtpskAJR2+AHCLlAB1ipEAh6OlAGWTtQBodYAAFSU/AGyTtQB3kqAAobrOACwv0AAwLNkAf5mjAIC40gCBudUAAwQCAGepygCAuNsAaKfNADlMUACMnqAAZZSwAFFfbQB5kZUAQ1BTAFZrbQAdKDcANll3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAX0hVg0dhYxUGUIFUFgAAV09nECuZlnI/apFrG5IAAHEvNkktQChBjEsMcCMNAAAqMlhFRFaVBHcLD4ZvaQAAPpA6ByyEOIJGjVt5UVkAAENaXRQcTQhzNVMdkzd8AAAwXnUYXAptASISPTRkfgAAAo97fYWLGp07OWAfdJcAAIlMjiGamIeIJ2WcJDFuAABCE4BoZlKbHmwlD5QDPAAAJk4RYg5/SgAAAAApGRcAAAAAAAl2igUAAAAAAAAAAAAAAAAgLnozAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP3/AADAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgPEAAPD/AADw/wAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
+  <link
+    href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAWX29AFF1lABwqs4AJiDJAD1OVwAoKMYAZHeIAGh9fwBsfX8AU2uAAC4u2AACAwEAf7nXAIObogAGBAQAY3B0ACg0OAA2NdsAhb7dAHiOhQAJBhMAAw0fACAhJACUwNEALVJ/AFBkdQCOwuAAiqi3ACUmKgAvPVMAfLXVACQnNgBvhIMALzXKAH641QBspMcASk7VAEZZcAA1N9AAdYiPABs1aQAwOTYAk8XYAFZsagB8mJsAIiouAHq41gApQ10AgrDQAHu41gCKjpgAXIurADI11ABwpsUAhLzZADxNTgA4N9oAdqvCADo51wBflroALjc6AC83OgA6P9cAeZGQACgryQBRhKkAQVFaAGx/dgB/lZwALS7SAH2XogBnp8kAkLC/AD1GQwAxNNsAgbzaAJiyvAApTXMAcq/PAEJOUgCTv9oAmMHOACkn0AAJDx8ANT1EAJSpqwAwR0cAhLXPAIK20gCBt9UABAICAIOcoABzorsAhLrVAFqTswAxNDwAiqiyAH2RkgAtL7wAk8beAEFF2QB+lJsAV4qrAIOWmACVyOQALzHUAH253ABKUdAAVXaCAEx3lwCHt9YAZZKxACo8OgAoLsMAKibPAI3E4gBahKMAe5WfAC0t0gDr+fcAfLfXADJDTwBhjZoAgbfXAHGEiABKepgAcYiLAEdiYwBtpskAJR2+AHCLlAB1ipEAh6OlAGWTtQBodYAAFSU/AGyTtQB3kqAAobrOACwv0AAwLNkAf5mjAIC40gCBudUAAwQCAGepygCAuNsAaKfNADlMUACMnqAAZZSwAFFfbQB5kZUAQ1BTAFZrbQAdKDcANll3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAX0hVg0dhYxUGUIFUFgAAV09nECuZlnI/apFrG5IAAHEvNkktQChBjEsMcCMNAAAqMlhFRFaVBHcLD4ZvaQAAPpA6ByyEOIJGjVt5UVkAAENaXRQcTQhzNVMdkzd8AAAwXnUYXAptASISPTRkfgAAAo97fYWLGp07OWAfdJcAAIlMjiGamIeIJ2WcJDFuAABCE4BoZlKbHmwlD5QDPAAAJk4RYg5/SgAAAAApGRcAAAAAAAl2igUAAAAAAAAAAAAAAAAgLnozAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP3/AADAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgPEAAPD/AADw/wAA//8AAP//AAA="
+    rel="icon" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 
 <body>
-  <h1>My Library</h1>
+  <nav>
+    <h1>My Library 📚</h1>
+  </nav>
 
-  <div id="book-list"></div>
-
-  <button id="new-book">Add New Book</button>
+  <p class="instruction">Hover over a book to see the details!</p>
 
   <div class="book-list"></div>
 
   <div id="new-book-modal" class="hidden modal">
-    <form id="new-book-form">
-      <label for="title">Title:</label>
-      <input type="text" name="title" id="title">
-      <label for="author">Author:</label>
-      <input type="text" name="author" id="author">
-      <label for="pages">Pages:</label>
-      <input type="number" name="pages" id="pages">
-      <label for="imageURL">Image link:</label>
-      <input type="text" name="imageURL" id="imageURL">
-      <label for="read">Read:</label>
-      <input type="checkbox" name="read" id="read">
-      <button id="submit" type="submit">Add Book</button>
-    </form>
+    <div class="modal-container">
+      <a href="index.html">✖</a>
+      <form id="new-book-form" autocomplete="off">
+        <div>
+          <label for="title">Title:</label>
+          <input type="text" name="title" id="title">
+        </div>
+        <div>
+          <label for="author">Author:</label>
+          <input type="text" name="author" id="author">
+        </div>
+        <div>
+          <label for="pages">Pages:</label>
+          <input type="number" name="pages" id="pages">
+        </div>
+        <div>
+          <label for="imageURL">Image link:</label>
+          <input type="text" name="imageURL" id="imageURL">
+        </div>
+        <div>
+          <label for="read">Read:</label>
+          <input type="checkbox" name="read" id="read">
+        </div>
+        <div>
+          <button id="submit" type="submit">Add Book</button>
+      </form>
+    </div>
   </div>
+  </div>
+
+  <button id="new-book-btn"><img src="img/add_FILL0_wght400_GRAD0_opsz48.svg"></button>
 
 </body>
 
