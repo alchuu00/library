@@ -5,12 +5,14 @@ const bookList = document.querySelector('.book-list');
 
 const myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [];
 
-function Book(title, author, pages, imageURL, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.imageURL = imageURL;
-  this.read = read;
+class Book {
+  constructor(title, author, pages, imageURL, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.imageURL = imageURL;
+    this.read = read;
+  }
 }
 
 const myBook = new Book(
